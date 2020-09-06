@@ -1,20 +1,16 @@
 using  System;
-using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace onpass_server.Models
 {
-    public class Entry
+    public class NewEntryModel
     {
-        public int Id { get; set; }
-
+        [Required]
         public String Website { get; set; }
 
         public String UserName { get; set; }
 
         public String Password { get; set; }
-        
-        [JsonIgnore]
-        public User User { get; set; }
 
     }
 }

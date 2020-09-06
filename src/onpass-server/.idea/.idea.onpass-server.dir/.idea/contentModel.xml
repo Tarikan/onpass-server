@@ -5,19 +5,24 @@
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_.19.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Controllers" t="Include">
+        <e p="AuthController.cs" t="Include" />
+        <e p="EntriesController.cs" t="Include" />
         <e p="UsersController.cs" t="Include" />
-        <e p="WeatherForecastController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
         <e p="DatabaseContext.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20200904080458_InitialCreate.Designer.cs" t="Include" />
-        <e p="20200904080458_InitialCreate.cs" t="Include" />
+        <e p="20200906133356_InitialCreate.Designer.cs" t="Include" />
+        <e p="20200906133356_InitialCreate.cs" t="Include" />
         <e p="DatabaseContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
         <e p="Entry.cs" t="Include" />
+        <e p="LoginModel.cs" t="Include" />
+        <e p="NewEntryModel.cs" t="Include" />
+        <e p="RandomPWDConfig.cs" t="Include" />
+        <e p="RegisterModel.cs" t="Include" />
         <e p="User.cs" t="Include" />
       </e>
       <e p="Program.cs" t="Include" />
@@ -25,7 +30,9 @@
         <e p="launchSettings.json" t="Include" />
       </e>
       <e p="Startup.cs" t="Include" />
-      <e p="WeatherForecast.cs" t="Include" />
+      <e p="Utils" t="Include">
+        <e p="PasswordGenerator.cs" t="Include" />
+      </e>
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="bin" t="ExcludeRecursive" />

@@ -10,26 +10,24 @@
     <Compile Remove="Controllers\UserController.cs" />
     <Compile Remove="Models\DatabaseContext.cs" />
     <Compile Remove="Utils\PasswordEncryptionHelper.cs" />
-    <Compile Remove="Utils\**" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="Properties\Models\**" />
-    <EmbeddedResource Remove="Utils\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Properties\Models\**" />
-    <None Remove="Utils\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Properties\Models\**" />
-    <Content Remove="Utils\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Isopoh.Cryptography.Argon2" Version="1.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -1,37 +1,13 @@
-using  System;
-using Isopoh.Cryptography.Argon2;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace onpass_server.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        public int Id { get; set; }
-
-        public String Username { get; set; }
-
-        public String Email { get; set; }
-
-        public Entry[] Entries { get; set; }
-
-        public String Password { get; set; }
-
-        public void EncryptPassword()
-        {
-            Password = Argon2.Hash(Password);
-        }
-
-        public Boolean CheckPassword(string unencryptedPassword)
-        {
-            return Argon2.Verify(Password, unencryptedPassword);
-        }
-
-        public override string ToString()
-        {
-            return $"User" + "\n" +
-                   $"Id = {Id.ToString()}" + "\n" +
-                   $"Username = {Username}" + "\n" +
-                   $"Email = {Email}" + "\n" +
-                   $"Password = {Password}";
-        }  
+        public ICollection<Entry> Entries { get; set; }
     }
 }

@@ -3,100 +3,69 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using onpass_server.Models;
-using  onpass_server.Data;
+using onpass_server.Data;
 using Newtonsoft.Json;
 
 namespace onpass_server.Controllers
 {
-    [Route("[controller]")]
+    [Route("user")]
     [ApiController]
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
         
         private readonly DatabaseContext _db;
+        
+        private readonly UserManager<User> _userManager;
 
-        public UserController(ILogger<UserController> logger, DatabaseContext db)
+        public UserController(ILogger<UserController> logger,
+            DatabaseContext db,
+            UserManager<User> userManager)
         {
             _logger = logger;
             _db = db;
+            _userManager = userManager;
         }
         
         [HttpGet]
-        public IActionResult GetAllUsers()
+        public async Task<IActionResult> GetUser()
         {
-            _logger.LogInformation("GetAllUsers called");
-            var response = _db.Users;
- 
-            return Ok(response);
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetUserById(int Id)
-        {
-            _logger.LogInformation($"GetUserById called with id {Id.ToString()}");
-
-            if (!_db.Users.Any(u => u.Id == Id))
+            _logger.LogInformation("GetUserAsync called");
+            var user = await _userManager.GetUserAsync(User);
+            //Console.WriteLine(user.Email);
+            //var response = new {UserName = currentUser.}
+            if (user == null)
             {
-                return NotFound();
+                return BadRequest("Unauthorized");
             }
-
-            var response = _db.Users.Single(u => u.Id == Id);
-            
-            return Ok(response);
-            }
-
-        [HttpPost]
-        public IActionResult PostUser([FromBody] User user)
-        {
-            _logger.LogInformation($"PostUser called");
-            try
+            return Ok(new
             {
-                user.EncryptPassword();
-                _db.Users.Add(user);
-                _db.SaveChanges();
-                return Ok();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return BadRequest();
-            }
+                UserName = user.UserName,
+                Email = user.Email
+            });
         }
 
         [HttpPut]
-        public IActionResult UpdateUser([FromBody] User user)
+        public async Task<IActionResult> UpdateUser()
         {
-            _logger.LogInformation($"UpdateUserById called with id {user.Id.ToString()}");
-            if (!_db.Users.Any(u => u.Id == user.Id))
-            {
-                return NotFound();
-            }
-            user.EncryptPassword();
-
-            var dbUser = _db.Users.Where(u => u.Id == user.Id).SingleOrDefault();
-            dbUser.Username = user.Username;
-            dbUser.Password = user.Password;
-            dbUser.Email = user.Email;
-            _db.SaveChanges();
-            return Ok(dbUser);
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteUserById(int Id)
-        {
-            _logger.LogInformation($"DeleteUserById called with id {Id.ToString()}");
-            if (!_db.Users.Any(u => u.Id == Id))
-            {
-                return NotFound();
-            }
+            _logger.LogInformation("UpdateUserAsync called");
+            var user = await _userManager.GetUserAsync(User);
             
-            _db.Users.Remove(_db.Users.Single(u => u.Id == Id));
-            _db.SaveChanges();
-            return Ok();
+            if (user == null)
+            {
+                return BadRequest("Unauthorized");
+            }
+
+            return Ok(user);
         }
+        
+        
+        
     }
 }
