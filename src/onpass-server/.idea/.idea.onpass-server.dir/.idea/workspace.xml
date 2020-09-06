@@ -12,15 +12,6 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
@@ -28,31 +19,14 @@
     <list default="true" id="8b4da9c2-5268-42c4-83ee-7ba23ff27e36" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.onpass-server.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.onpass-server.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.onpass-server.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.onpass-server.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/EntriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/EntriesController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/DatabaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DatabaseContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20200904080458_InitialCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20200904080458_InitialCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/DatabaseContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Entry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/onpass-server.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/onpass-server.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/onpass-server.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/onpass-server.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,17 +69,18 @@
         <option value="$PROJECT_DIR$/Models/JWTContainerModel.cs" />
         <option value="$PROJECT_DIR$/Interfaces/IAuthService.cs" />
         <option value="$PROJECT_DIR$/Utils/JWTService.cs" />
-        <option value="$PROJECT_DIR$/Controllers/AuthController.cs" />
         <option value="$PROJECT_DIR$/Models/RegisterModel.cs" />
         <option value="$PROJECT_DIR$/Models/LoginModel.cs" />
-        <option value="$PROJECT_DIR$/Startup.cs" />
         <option value="$PROJECT_DIR$/Data/DatabaseContext.cs" />
-        <option value="$PROJECT_DIR$/Controllers/UsersController.cs" />
         <option value="$PROJECT_DIR$/Models/NewEntryModel.cs" />
         <option value="$PROJECT_DIR$/Models/User.cs" />
         <option value="$PROJECT_DIR$/Models/Entry.cs" />
         <option value="$PROJECT_DIR$/Models/EntryResult.cs" />
         <option value="$PROJECT_DIR$/Controllers/EntriesController.cs" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/Controllers/AuthController.cs" />
+        <option value="$PROJECT_DIR$/Models/ResetPasswordModel.cs" />
+        <option value="$PROJECT_DIR$/Controllers/UsersController.cs" />
       </list>
     </option>
   </component>
@@ -164,7 +139,7 @@
       <workItem from="1599229382412" duration="942000" />
       <workItem from="1599230459833" duration="5215000" />
       <workItem from="1599392031299" duration="5346000" />
-      <workItem from="1599397647638" duration="3864000" />
+      <workItem from="1599397647638" duration="8628000" />
     </task>
     <servers />
   </component>
@@ -192,9 +167,9 @@
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
     <state x="98" y="128" width="1724" height="854" key="VCS.FileHistoryDialog/0.28.1920.1052@0.28.1920.1052" timestamp="1599394901711" />
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1599400143489">
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1599404564482">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1599400143489" />
+    <state x="623" y="260" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1599404564482" />
   </component>
 </project>

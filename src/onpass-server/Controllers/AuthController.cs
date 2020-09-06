@@ -31,12 +31,24 @@ namespace onpass_server.Controllers
             _signInManager = signInManager;
             _logger = logger;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> CheckStatus()
+        {
+            _logger.LogInformation("CheckStatus called");  
+            if (await _userManager.GetUserAsync(User) == null)
+            {
+                return Unauthorized();
+            }
+            return Ok();
+        }
         
         [HttpPost]
         [Route("Register")]
         [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterModel model)
         {
+            _logger.LogInformation("Register called");
             var user = new User { UserName = model.UserName, Email = model.Email };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
@@ -57,6 +69,7 @@ namespace onpass_server.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginModel model)
         {
+            _logger.LogInformation("Login called");
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, set lockoutOnFailure: true
             var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, true, lockoutOnFailure: false);
@@ -72,6 +85,41 @@ namespace onpass_server.Controllers
             }
             
             return BadRequest("Invalid username or/and password ");
+        }
+
+        [HttpPost]
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            _logger.LogInformation("Logout called");
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            await _signInManager.SignOutAsync();
+            return Ok();
+        }
+        
+        [HttpPost]
+        [Route("CheckPassword")]
+        public async Task<IActionResult> CheckPassword([FromBody] string pwd)
+        {
+            _logger.LogInformation("CheckPassword called");
+            var user = await _userManager.GetUserAsync(User);
+            
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            if (await _userManager.CheckPasswordAsync(user, pwd))
+            {
+                return Ok();
+            }
+
+            return BadRequest();
         }
     }
 }

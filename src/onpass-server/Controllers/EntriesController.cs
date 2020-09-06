@@ -60,7 +60,7 @@ namespace onpass_server.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return BadRequest("Unauthorized");
+                return Unauthorized();
             }
             //_db.Entries.Where(entry => entry.User == user)
             var EntriesList = await _db.Entries.Where(entry => entry.User == user).ToListAsync();
@@ -82,7 +82,7 @@ namespace onpass_server.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return BadRequest("Unauthorized");
+                return Unauthorized();
             }
             
             Entry NewEntry = new Entry()
@@ -99,32 +99,51 @@ namespace onpass_server.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateEntries([FromBody] Entry Entries)
+        public async Task<IActionResult> UpdateEntries([FromBody] Entry Entries)
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
             _logger.LogInformation($"UpdateEntriesById called with id {Entries.Id.ToString()}");
             if (!_db.Entries.Any(u => u.Id == Entries.Id))
             {
                 return NotFound();
             }
 
-            var dbEntries = _db.Entries.Where(u => u.Id == Entries.Id).SingleOrDefault();
-            dbEntries.UserName = Entries.UserName;
-            dbEntries.Password = Entries.Password;
-            dbEntries.Website = Entries.Website;
+            var dbEntry = await _db.Entries.Where(u => u.Id == Entries.Id).SingleOrDefaultAsync();
+            dbEntry.UserName = Entries.UserName;
+            dbEntry.Password = Entries.Password;
+            dbEntry.Website = Entries.Website;
             _db.SaveChanges();
-            return Ok(dbEntries);
+            return Ok(dbEntry);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteEntriesById(int Id)
+        public async Task<IActionResult> DeleteEntriesById(int Id)
         {
             _logger.LogInformation($"DeleteEntriesById called with id {Id.ToString()}");
+            
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            Entry entry = await _db.Entries.Where(e => e.Id == Id).SingleOrDefaultAsync();
+
+            if (entry == null)
+            {
+                return NotFound();
+            }
+            
             if (!_db.Entries.Any(u => u.Id == Id))
             {
                 return NotFound();
             }
             
-            _db.Entries.Remove(_db.Entries.Single(u => u.Id == Id));
+            _db.Entries.Remove(entry);
             _db.SaveChanges();
             return Ok();
         }

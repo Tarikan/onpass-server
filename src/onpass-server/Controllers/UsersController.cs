@@ -42,7 +42,7 @@ namespace onpass_server.Controllers
             //var response = new {UserName = currentUser.}
             if (user == null)
             {
-                return BadRequest("Unauthorized");
+                return Unauthorized();
             }
             return Ok(new
             {
@@ -52,20 +52,73 @@ namespace onpass_server.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateUser()
+        public async Task<IActionResult> UpdateUser([FromBody] RegisterModel upd)
         {
             _logger.LogInformation("UpdateUserAsync called");
             var user = await _userManager.GetUserAsync(User);
             
             if (user == null)
             {
-                return BadRequest("Unauthorized");
+                return Unauthorized();
             }
+
+            if (!await _userManager.CheckPasswordAsync(user, upd.Password))
+            {
+                return NotFound("Wrong password");
+            }
+
+            user.Email = upd.Email;
+            user.UserName = upd.UserName;
+
+            await _userManager.UpdateAsync(user);
 
             return Ok(user);
         }
-        
-        
-        
+
+        [HttpPut]
+        [Route("Password")]
+        public async Task<IActionResult> UpdatePassword([FromBody] ResetPasswordModel upd)
+        {
+            _logger.LogInformation("UpdatePasswordAsync called");
+            var user = await _userManager.GetUserAsync(User);
+            
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+            
+            if (!await _userManager.CheckPasswordAsync(user, upd.OldPassword))
+            {
+                return NotFound("Wrong password");
+            }
+
+            await _userManager.ChangePasswordAsync(user, upd.OldPassword, upd.NewPassword);
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var entries = user.Entries;
+            _db.Entries.RemoveRange(entries);
+            await _db.SaveChangesAsync();
+
+            var res = await _userManager.DeleteAsync(user);
+            
+            if (res.Succeeded)
+            {
+                return Ok();
+            }
+
+            return Problem("Something goes wrong...");
+        }
     }
 }
