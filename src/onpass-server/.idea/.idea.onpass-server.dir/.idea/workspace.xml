@@ -17,16 +17,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b4da9c2-5268-42c4-83ee-7ba23ff27e36" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.onpass-server.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.onpass-server.dir/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.onpass-server.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.onpass-server.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/EntriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/EntriesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp3.1/onpass-server.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp3.1/onpass-server.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +85,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../README.md" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.onpass-server: IIS Express">
     <configuration name="onpass-server: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -139,7 +131,11 @@
       <workItem from="1599229382412" duration="942000" />
       <workItem from="1599230459833" duration="5215000" />
       <workItem from="1599392031299" duration="5346000" />
-      <workItem from="1599397647638" duration="8628000" />
+      <workItem from="1599397647638" duration="10205000" />
+      <workItem from="1599475353042" duration="1594000" />
+      <workItem from="1599477195813" duration="302000" />
+      <workItem from="1599477699579" duration="114000" />
+      <workItem from="1599477847330" duration="2000" />
     </task>
     <servers />
   </component>
@@ -159,10 +155,14 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="743" y="313" width="428" height="485" key="FileChooserDialogImpl" timestamp="1599382683818">
+    <state x="743" y="313" width="428" height="485" key="FileChooserDialogImpl" timestamp="1599477790594">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>
-    <state x="743" y="313" width="428" height="485" key="FileChooserDialogImpl/0.28.1920.1052@0.28.1920.1052" timestamp="1599382683818" />
+    <state x="743" y="313" width="428" height="485" key="FileChooserDialogImpl/0.28.1920.1052@0.28.1920.1052" timestamp="1599477790594" />
+    <state x="464" y="190" width="992" height="731" key="SettingsEditor" timestamp="1599477795728">
+      <screen x="0" y="28" width="1920" height="1052" />
+    </state>
+    <state x="464" y="190" width="992" height="731" key="SettingsEditor/0.28.1920.1052@0.28.1920.1052" timestamp="1599477795728" />
     <state x="98" y="128" width="1724" height="854" key="VCS.FileHistoryDialog" timestamp="1599394901711">
       <screen x="0" y="28" width="1920" height="1052" />
     </state>

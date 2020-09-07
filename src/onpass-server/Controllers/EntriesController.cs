@@ -15,6 +15,9 @@ using Newtonsoft.Json;
 
 namespace onpass_server.Controllers
 {
+    /// <summary>
+    /// CRUD Entry from the database and generate random password.
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class EntriesController : Controller
@@ -23,6 +26,9 @@ namespace onpass_server.Controllers
         private readonly UserManager<User> _userManager;
         private readonly DatabaseContext _db;
 
+        /// <summary>
+        /// Constructor for the class.
+        /// </summary>
         public EntriesController(ILogger<EntriesController> logger,
             DatabaseContext db,
             UserManager<User> userManager)
@@ -32,6 +38,11 @@ namespace onpass_server.Controllers
             _userManager = userManager;
         }
         
+        /// <summary>
+        /// Generate random password.
+        /// </summary>
+        /// <param name="config">RandomPWDConfig from request body.</param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("new_password")]
         public IActionResult GeneratePassword([FromBody] RandomPWDConfig config)
@@ -52,7 +63,13 @@ namespace onpass_server.Controllers
             return Ok(response);
         }
 
-
+        /// <summary>
+        /// Get all entries that belongs to current user
+        /// </summary>
+        /// <returns>
+        /// 200 response and array of entries
+        /// 401 response if unauthorized
+        /// </returns>
         [HttpGet]
         public async Task<IActionResult> GetAllEntries()
         {
@@ -75,6 +92,14 @@ namespace onpass_server.Controllers
             });
         }
 
+        /// <summary>
+        /// Create new entry
+        /// </summary>
+        /// <param name="entry">NewEntryModel from request body</param>
+        /// <returns>
+        /// 200 response and new entry
+        /// 401 response if unauthorized
+        /// </returns>
         [HttpPost]
         public async Task<IActionResult> PostEntries([FromBody] NewEntryModel entry)
         {
@@ -98,6 +123,15 @@ namespace onpass_server.Controllers
             return Ok(NewEntry);
         }
 
+        /// <summary>
+        /// Update existing entry
+        /// </summary>
+        /// <param name="Entries">Entry from request body</param>
+        /// <returns>
+        /// 200 response and new entry
+        /// 401 response if unauthorized
+        /// 404 response if entry not found
+        /// </returns>
         [HttpPut]
         public async Task<IActionResult> UpdateEntries([FromBody] Entry Entries)
         {
@@ -120,6 +154,15 @@ namespace onpass_server.Controllers
             return Ok(dbEntry);
         }
 
+        /// <summary>
+        /// Delete entry by Id
+        /// </summary>
+        /// <param name="Id">Id of entry</param>
+        /// <returns>
+        /// 200 response if deleted
+        /// 401 response if unauthorized
+        /// 404 response if entry not found
+        /// </returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEntriesById(int Id)
         {

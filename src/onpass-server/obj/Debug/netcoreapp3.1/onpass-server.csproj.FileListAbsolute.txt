@@ -143,3 +143,5 @@
 /home/tarikan/cpppp/onpass-server-net/src/onpass-server/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
 /home/tarikan/cpppp/onpass-server-net/src/onpass-server/bin/Debug/netcoreapp3.1/appsettings.json
 /home/tarikan/cpppp/onpass-server-net/src/onpass-server/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/tarikan/cpppp/onpass-server-net/src/onpass-server/bin/Debug/netcoreapp3.1/onpass-server.xml
+/home/tarikan/cpppp/onpass-server-net/src/onpass-server/obj/Debug/netcoreapp3.1/onpass-server.xml

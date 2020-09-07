@@ -14,6 +14,9 @@ using Newtonsoft.Json;
 
 namespace onpass_server.Controllers
 {
+    /// <summary>
+    /// Controller for User table in the database.
+    /// </summary>
     [Route("user")]
     [ApiController]
     public class UserController : Controller
@@ -33,6 +36,13 @@ namespace onpass_server.Controllers
             _userManager = userManager;
         }
         
+        /// <summary>
+        /// Get all information about current user.
+        /// </summary>
+        /// <returns>
+        /// 401 response if unauthorized
+        /// 200 response and username\, password
+        /// </returns>
         [HttpGet]
         public async Task<IActionResult> GetUser()
         {
@@ -51,6 +61,15 @@ namespace onpass_server.Controllers
             });
         }
 
+        /// <summary>
+        /// Update current user.
+        /// </summary>
+        /// <param name="upd">RegisterModel from request body</param>
+        /// <returns>
+        /// 401 response if unauthorized
+        /// 404 response if password is wrong
+        /// 200 response and new user if success
+        /// </returns>
         [HttpPut]
         public async Task<IActionResult> UpdateUser([FromBody] RegisterModel upd)
         {
@@ -75,6 +94,15 @@ namespace onpass_server.Controllers
             return Ok(user);
         }
 
+        /// <summary>
+        /// Change password of current user.
+        /// </summary>
+        /// <param name="upd">Old and new password</param>
+        /// <returns>
+        /// 401 response if unauthorized
+        /// 404 response if password is wrong
+        /// 200 response and new user if success
+        /// </returns>
         [HttpPut]
         [Route("Password")]
         public async Task<IActionResult> UpdatePassword([FromBody] ResetPasswordModel upd)
@@ -97,6 +125,13 @@ namespace onpass_server.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Delete current user.
+        /// </summary>
+        /// <returns>
+        /// 401 response if unauthorized
+        /// 200 response and new user if success
+        /// </returns>
         [HttpDelete]
         public async Task<IActionResult> DeleteUser()
         {

@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>onpass-server</name>
+    </assembly>
+    <members>
+        <member name="T:onpass_server.Controllers.AuthController">
+            <summary>w
+            API controller that contains all endpoints for authentification
+            </summary>
+        </member>
+        <member name="M:onpass_server.Controllers.AuthController.#ctor(Microsoft.AspNetCore.Identity.UserManager{onpass_server.Models.User},Microsoft.AspNetCore.Identity.SignInManager{onpass_server.Models.User},Microsoft.Extensions.Logging.ILogger{onpass_server.Controllers.AuthController})">
+            <summary>
+            Constructor for AuthController class
+            </summary>
+        </member>
+        <member name="M:onpass_server.Controllers.AuthController.CheckStatus">
+            <summary>
+            Check if client is authorized
+            </summary>
+            <returns>
+            Response with code 200 if authorized
+            Response with code 401 if not authorized
+            </returns>
+        </member>
+        <member name="M:onpass_server.Controllers.AuthController.Register(onpass_server.Models.RegisterModel)">
+            <summary>
+            Register new user
+            </summary>
+            <param name="model"></param>
+            <returns>
+            Response with code 200 if success
+            Response with code 400 if username already exist
+            </returns>
+        </member>
+        <member name="M:onpass_server.Controllers.AuthController.Login(onpass_server.Models.LoginModel)">
+            <summary>
+            Log in user into system
+            </summary>
+            <param name="model"></param>
+            <returns>
+            Response with code 200 if success
+            Response with code 400 if account is locked or wrong credentials
+            </returns>
+        </member>
+        <member name="M:onpass_server.Controllers.AuthController.Logout">
+            <summary>
+            Log out user from system
+            </summary>
+            <returns>
+            Response with code 200 if success
+            Response with code 401 if unauthorized
+            </returns>
+        </member>
+        <member name="M:onpass_server.Controllers.AuthController.CheckPassword(System.String)">
+            <summary>
+            Check password of current user
+            </summary>
+            <param name="pwd"></param>
+            <returns>
+            Response with code 200 if success
+            Response with code 401 if unauthorized
+            Response with code 40 if wrong password
+            </returns>
+        </member>
+        <member name="T:onpass_server.Controllers.EntriesController">
+            <summary>
+            CRUD Entry from the database and generate random password.
+            </summary>
+        </member>
+        <member name="M:onpass_server.Controllers.EntriesController.#ctor(Microsoft.Extensions.Logging.ILogger{onpass_server.Controllers.EntriesController},onpass_server.Data.DatabaseContext,Microsoft.AspNetCore.Identity.UserManager{onpass_server.Models.User})">
+            <summary>
+            Constructor for the class.
+            </summary>
+        </member>
+        <member name="M:onpass_server.Controllers.EntriesController.GeneratePassword(onpass_server.Models.RandomPWDConfig)">
+            <summary>
+            Generate random password.
+            </summary>
+            <param name="config">RandomPWDConfig from request body.</param>
+            <returns></returns>
+        </member>
+        <member name="M:onpass_server.Controllers.EntriesController.GetAllEntries">
+            <summary>
+            Get all entries that belongs to current user
+            </summary>
+            <returns>
+            200 response and array of entries
+            401 response if unauthorized
+            </returns>
+        </member>
+        <member name="M:onpass_server.Controllers.EntriesController.PostEntries(onpass_server.Models.NewEntryModel)">
+            <summary>
+            Create new entry
+            </summary>
+            <param name="entry">NewEntryModel from request body</param>
+            <returns>
+            200 response and new entry
+            401 response if unauthorized
+            </returns>
+        </member>
+        <member name="M:onpass_server.Controllers.EntriesController.UpdateEntries(onpass_server.Models.Entry)">
+            <summary>
+            Update existing entry
+            </summary>
+            <param name="Entries">Entry from request body</param>
+            <returns>
+            200 response and new entry
+            401 response if unauthorized
+            404 response if entry not found
+            </returns>
+        </member>
+        <member name="M:onpass_server.Controllers.EntriesController.DeleteEntriesById(System.Int32)">
+            <summary>
+            Delete entry by Id
+            </summary>
+            <param name="Id">Id of entry</param>
+            <returns>
+            200 response if deleted
+            401 response if unauthorized
+            404 response if entry not found
+            </returns>
+        </member>
+        <member name="T:onpass_server.Data.DatabaseContext">
+            <summary>
+            App DBContext
+            </summary>
+        </member>
+        <member name="M:onpass_server.Data.DatabaseContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{onpass_server.Data.DatabaseContext})">
+            <summary>
+            Constructor for class
+            </summary>
+        </member>
+        <member name="P:onpass_server.Data.DatabaseContext.Entries">
+            <summary>
+            Create DbSet field to read and write do database table "Entry"
+            </summary>
+        </member>
+        <member name="M:onpass_server.Data.DatabaseContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Options for creating
+            </summary>
+        </member>
+        <member name="T:onpass_server.Models.Entry">
+            <summary>
+            Model that describes "Entry" table from database.
+            </summary>
+        </member>
+        <member name="P:onpass_server.Models.Entry.Id">
+            <summary>
+            Id of entry.
+            </summary>
+        </member>
+        <member name="P:onpass_server.Models.Entry.Website">
+            <summary>
+            Website of entry.
+            </summary>
+        </member>
+        <member name="P:onpass_server.Models.Entry.UserName">
+            <summary>
+            Username of Entry.
+            </summary>
+        </member>
+        <member name="P:onpass_server.Models.Entry.Password">
+            <summary>
+            Password of Entry.
+            </summary>
+        </member>
+        <member name="P:onpass_server.Models.Entry.User">
+            <summary>
+            User, which is an owner of entry.
+            </summary>
+        </member>
+        <member name="T:onpass_server.Models.RegisterModel">
+            <summary>
+            Model for registration request.
+            </summary>
+        </member>
+        <member name="P:onpass_server.Models.RegisterModel.Email">
+            <summary>
+            The Email property represents the new user Email adress.
+            </summary>
+        </member>
+        <member name="P:onpass_server.Models.RegisterModel.UserName">
+            <summary>
+            The Email property represents the new user username.
+            </summary>
+        </member>
+        <member name="P:onpass_server.Models.RegisterModel.Password">
+            <summary>
+            The Email property represents the new user password.
+            </summary>
+        </member>
+    </members>
+</doc>
